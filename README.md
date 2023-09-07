@@ -20,3 +20,13 @@ Create a Branch: Before making changes, create a new branch for your work. This 
 Commit and Push: Make your code changes, commit them with descriptive messages, and push them to your forked repository.
 Open Pull Requests: Once you're ready to contribute your changes back to this repository, open a pull request. This allows your changes to be reviewed and merged into the main repository if they meet the required criteria.
 Discuss and Collaborate: Engage in discussions, collaborate with fellow students, and provide feedback on each other's code through pull requests and issues.
+
+
+Community Guidelines:
+Please follow these guidelines to maintain a productive and respectful environment:
+
+Be respectful of others' work and contributions.
+Provide constructive feedback and assistance when possible.
+Keep code organized and well-documented.
+Follow best practices for JavaScript development.
+Use clear and descriptive commit messages.
