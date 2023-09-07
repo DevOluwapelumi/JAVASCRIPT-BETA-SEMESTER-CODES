@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe Game</title>
+</head>
+<body style="background-color: rebeccapurple;">
+    <table border="5" width="500px" height="500px">
+        <tr>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+        </tr>
+        <tr>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+        </tr>
+        <tr>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+            <td onclick="test(event)"></td>
+        </tr>
+    </table>
+
+    <script>
+        let tic = "X"
+        const test = (e)=>{
+            if(tic=="X"){
+                e.target.innerText = "X"
+                tic = "O"
+            }else if(tic=="O"){
+                e.target.innerText = "O"
+                tic = "X"
+            }
+        }
+    </script>
+</body>
+</html>

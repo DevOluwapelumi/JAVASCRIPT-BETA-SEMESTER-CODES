@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop~watch</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body style="background-color: rgba(54, 10, 10, 0.555);">
+    <style>
+        #stopwatch {
+                display: flex;  
+                font-weight: 1000;
+                margin-top: 200px !important;
+            }
+
+        #stopwatch div {
+                font-size: 100px;
+            }
+
+        #colon {
+                padding: 0 10px;
+            }
+
+    </style>
+
+
+<!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+        <div class="text-center mt-5">
+      <!-- <div class=" text-center"> -->
+        <h1>Stopwatch</h1>
+      <!-- </div> -->
+   
+    <div id="stopwatch">
+        <div id="minutes">00</div> 
+        <div id="colon">:</div>
+        <div id="seconds">00</div>
+        <div id="colon">:</div>
+        <div id="hundredths">00</div>
+      </div>
+    <!-- <div class="row"> -->
+     
+
+    <!-- </div> -->
+    <!-- <div class="row"> -->
+      <!-- <div class="col-md-12 text-center"> -->
+        <button class="btn btn-success my-5" id="start-stop">Start</button>
+        <button class="btn btn-danger my-5" id="reset">Reset</button>
+    </div>
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  
+
+
+    <script>
+
+            const stopwatch = document.getElementById("stopwatch");
+            const startStop = document.getElementById("start-stop");
+            const reset = document.getElementById("reset");
+
+            let minutes = 0;
+            let seconds = 0;
+            let hundredths = 0;
+            let isRunning = false;
+            let intervalId;
+
+            function format(time) {
+            return `${time < 10 ? "0" : ""}${time}`;
+            }
+
+            function update() {
+            const minutesNode = document.getElementById("minutes");
+            const secondsNode = document.getElementById("seconds");
+            const hundredthsNode = document.getElementById("hundredths");
+
+            
+            hundredths++;
+
+            if (hundredths === 100) {
+                hundredths = 0;
+                seconds++;
+            }
+
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+
+            minutesNode.innerHTML = format(minutes);
+            secondsNode.innerHTML = format(seconds);
+            hundredthsNode.innerHTML = format(hundredths);
+            }
+
+        startStop.addEventListener("click", function() {
+        if (isRunning) {
+            clearInterval(intervalId);
+            startStop.innerHTML = "Start";
+        } else {
+            intervalId = setInterval(update, 10);
+            startStop.innerHTML = "Stop";
+        }
+
+        isRunning = !isRunning;
+        });
+
+            reset.addEventListener("click", function() {
+                clearInterval(intervalId);
+                minutes = 0;
+                seconds = 0;
+                hundredths = 0;
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                document.getElementById("hundredths").innerHTML = "00";
+                startStop.innerHTML = "Start";
+                isRunning = false;
+            });
+
+
+    </script>
+    
+</body>
+</html>

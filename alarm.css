@@ -1,0 +1,49 @@
+body{
+    font-family: cursive;
+    z-index: 1;
+    padding: 0;
+    background: linear-gradient(to right,purple,pink,orange, #0c4655, #7fb3c0, red, black, yellow, green) 
+}
+h1{
+    color:   lavender;
+}
+div{
+    margin: auto;
+    margin-bottom:10px;
+}
+.dinputs{
+    margin: auto;
+    font-size: 50px;
+    font-weight: 1000;
+    border-bottom: 10px solid orangered;
+}
+input{
+    margin: auto;
+    border: 2px solid rgb(3, 112, 139);
+    margin-bottom: 20px;
+    box-shadow: inset;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    text-align: center;
+    caret-color: tomato;
+}
+input::placeholder{
+    color: rgb(3, 112, 139);
+}
+select{
+   
+    border: 2px solid rgb(3, 112, 139);
+    color: tomato;
+    height: 40px;
+}
+#gettym{
+    font-size: 100px;
+    color: blue;
+}
+button{
+    margin-top: 10px;
+    color: white  !important;
+}

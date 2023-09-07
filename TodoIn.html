@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mt-5 row">
+            <div class="col-12 te border w-50 mx-auto pb-2">
+                <h1>Sign In Page</h1>
+                <div id="error"></div>
+                <input type="text" placeholder="E-mail" id="InEm" class="form-control my-2"> <br> <br>
+                <input type="text" placeholder="Password" id="InPs" class="form-control my-2"> <br> <br>
+                <button class="btn btn-danger my-3" onclick="back()">Previous</button>
+                <button class="btn btn-danger my-3" onclick="signIn()">Log In</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var everyDetails = JSON.parse(localStorage.getItem('userInfo'))
+        console.log(everyDetails)
+
+        function signIn(){
+            var userEmail = InEm.value;
+            var userPass = InPs.value;
+            var found = false
+
+            for (let index = 0; index < everyDetails.length; index++) {
+                if(everyDetails[index].email == userEmail && everyDetails[index].password == userPass){
+                    alert(index)
+                    found = true
+                    localStorage.setItem('currentUser', index)
+                    break;
+            }
+        }
+
+        if(found == true){
+            // swal("Good job!", "You clicked the button!", "success");
+            window.location.href = "TodoAdd.html"
+        }else{
+            error.innerHTML =`<h5 class="text-danger"> Incorrect Details </h5>`
+        }
+    }
+
+        function back(){
+            var getconfirm = confirm("Do you wanna go back?")
+            if(getconfirm == true){
+                window.location.href = "TodoUp.html"
+            }else{
+                alert("You dey Play!!!")
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

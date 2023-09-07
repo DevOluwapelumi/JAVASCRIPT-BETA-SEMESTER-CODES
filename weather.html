@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather BroadCast</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body style="background: wheat; background-image: url(./images/Weatherimage.jpg); background-repeat: no-repeat; background-size: cover;">
+    <b id="nam" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b>
+    <b id="con" style="font-size: xx-large; color: red;"></b>
+    <div class="row mt-5">
+        <div class="col-sm-12 col-lg-3 mx-auto shadow p-5 mt-5">
+                <b id="temp" style="font-size: xxx-large; color: red; margin-left: 100px;">0 <sup>o</sup>C</b> <br>
+                <b id="Dest" style="font-size: xxx-large; color: red; margin-left: 100px;"></b>
+                <input type="text" placeholder="Enter your search here" class="form-control text-center" id="userInput">  <br>
+                <!-- <div class="col-sm-12 col-md-6 col-lg-2"> <br> -->
+                   
+                    <b id="deg" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    <b id="hum" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    <b id="pre" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    <b id="lat" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    <b id="long" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                   
+                    <b id="rise" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    <b id="set" style="font-size: xx-large; color: red;">0 <sup>o</sup>C</b> <br>
+                    
+                <button class="btn btn-dark w-100 mt-5" onclick="getData()">Fetch From Api</button>
+                <!-- <a href="#" class="test-muted float-end mt-3" id="signOut">Log out</a> -->
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
+    <script>
+         const getData = async ()=>{
+        let myApi = 'a3b8d6fb17f68e5be7796cea40bdfb96'
+        let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${userInput.value}&appid=${myApi}&units=metric`
+
+       
+        let response = await fetch(endpoint) 
+        fetch(endpoint)
+        .then((response)=>response.json())
+        .then((convertedResponse=>{
+            console.log(convertedResponse)
+            let name = convertedResponse.name
+           console.log(name)
+        //    nam.innerHTML = `Name of Search = ${name}`
+           nam.innerHTML = `${name},`
+
+            let getit = convertedResponse.wind.deg
+           console.log(getit)
+           deg.innerHTML = `Degree = ${getit}<sup>o</sup>C`
+
+           let getat = convertedResponse.main.temp
+           console.log(getat)
+        //    temp.innerHTML = `Temperature = ${getat}<sup>o</sup>C`
+           temp.innerHTML = `${getat}<sup>o</sup>C`
+
+           let humidity = convertedResponse.main.humidity
+           console.log(humidity)
+           hum.innerHTML = `Humidity = ${humidity}<sup>o</sup>C`
+
+           let pressure = convertedResponse.main.pressure
+           console.log(pressure)
+           pre.innerHTML = `Pressure = ${pressure}<sup>o</sup>C`
+
+           let latitute = convertedResponse.coord.lat
+           console.log(latitute)
+           lat.innerHTML = `Latitude = ${latitute}<sup>o</sup>C`
+
+           let longitude = convertedResponse.coord.lon
+           console.log(longitude)
+           long.innerHTML = `Longitude = ${longitude}<sup>o</sup>C`
+
+           let cosusunset = convertedResponse.sys.country
+           console.log(cosusunset)
+        //    con.innerHTML = `Country = ${cosusunset}`
+           con.innerHTML = `${cosusunset}`
+
+           let susunset = convertedResponse.sys.sunrise
+           console.log(susunset)
+           rise.innerHTML = `Sunrise = ${susunset}<sup>o</sup>C`
+
+           let sunset = convertedResponse.sys.sunset
+           console.log(sunset)
+           set.innerHTML = `Sunset = ${sunset}<sup>o</sup>C`
+
+           let Des = convertedResponse.weather[0].main
+           console.log(Des)
+        //    Dest.innerHTML = `Weather Description = ${Des}`
+           Dest.innerHTML = `${Des}`
+        }))
+    }
+  
+
+        // // const getLocation = ()=>{
+        //     let myApia = 'a3b8d6fb17f68e5be7796cea40bdfb96'
+        //     let endpoint1 = `https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid=${myApia}&units=metric`
+        //     navigator.geolocation.getCurrentPosition((location)=>{
+        //         console.log(location)
+                
+        //         // console.log(latitude,longitude)
+
+        //         let endpoint1 = ``
+        //         fetch(endpoint1)
+        //         .then((response)=>response.json())
+        //         .then((convertedResponse)=>{
+        //             console.log(convertedResponse)
+        //             let latitude = location.coords.latitute
+        //             let longitude = location.coords.longitude
+        //             console.log(longitude)
+        //             myLocation.innerHTML = `<h1>${longitude}</h1>`
+        //         })
+        //     })
+        // }
+        // // }
+    </script>
+
+</body>
+</html>

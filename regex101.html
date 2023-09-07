@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGEX</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <input type="text" id="userInput">
+    <input type="text" id="userIn">
+    <div id="disp"></div>
+    <button class="btn btn-success my-5" onclick="signUp()">Sign Up</button>
+    <button class="btn btn-success my-5" onclick="signIn()">Sign In</button>
+    <script>
+        function signUp(){
+        let regexForPhone = /^[\d]{11}$/
+    //    console.log(regexForPhone.test("0704714209")) 
+
+    if(!regexForPhone.test(userInput.value)){
+        disp.innerHTML = "Kindly enter a phone number"
+        disp.className = "text-danger"
+        userInput.className = "form-control is-invalid"
+        console.log("error")
+    }else{
+        console.log("passed")
+    }
+}
+
+function signIn(){
+        let regexForEmail = /[\w]{7,}@[\w]{4,}.com/
+    //    console.log(regexForPhone.test("0704714209")) 
+    
+    if(!regexForEmail.test(userIn.value)){
+        disp.innerHTML = "Kindly enter a valid Email"
+        disp.className = "text-danger"
+        userIn.className = "form-control is-invalid"
+        // console.log("error")
+    }else{
+        userIn.className = "form-control is-valid"
+        disp.innerHTML = "Success"
+        disp.className = "text-sucess"
+        // console.log("passed")
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <!-- <select name="" id="mySelect" onchange="test()">
+        <option value="">Male</option>
+        <option value="">Female</option>
+        <option value="">Victor</option>
+    </select> -->
+    <!-- <button onmouseover="test()">Test</button> -->
+    <button onclick="attach(event)">Try</button>
+    <input type="text" value="Victor" onkeydown="test()" id="myInput">
+    <button onclick="attach(event)" id="myBtn">Try</button>
+    <!-- <input type="text" oninput="test()"> -->
+    <!-- <input type="text" onblur="test()"> -->
+    <!-- <input type="text" onkeydown="test()"> -->
+    <!-- <input type="text" onkeyup="test()">     -->
+    <script>
+        const test = ()=>{
+            alert("Hello")
+            alert(mySelect.value)
+        }
+
+        const attach = (e)=>{
+                console.log(myInput.value)
+                console.log(e.target.value)
+                console.log(e.target)
+                console.log(myBtn)
+                console.log(myBtn.innerText)
+        }
+
+
+    </script>
+</body>
+</html>

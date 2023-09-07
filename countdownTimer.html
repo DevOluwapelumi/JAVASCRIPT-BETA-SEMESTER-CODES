@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count~Down Timer</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body style=" background: linear-gradient(to right,purple,pink,orange, #0c4655, #7fb3c0, red, black, yellow, green) ">
+    <style>
+          input{
+            border-bottom: 10px solid orangered;
+            border-top: none;
+            border-right: none;
+             border-left: none;
+             outline: none;
+             font-size: 50px;
+             font-weight: 1000;
+          }
+    </style>
+        <div class="text-center mt-5">
+            <marquee behavior="alternate" direction="right"> <h1>Set Your Count~Down Timer!!!</h1> </marquee>
+            <div id="display"></div>
+                <input type="text" placeholder="00" class=" text-center" id="hh" style="width: 100px; height: 100px; border-radius: 60px; border-top-left-radius: 50px;  border-bottom-right-radius: 100px; margin-top: 200px;">     :
+                <input type="text" placeholder="00" class=" text-center" id="mm" style="width: 100px; height: 100px; border-radius: 60px; border-top-left-radius: 100px;  border-bottom-right-radius: 30px;"> :
+                <input type="text" placeholder="00" class=" text-center" id="ss" style="width: 100px; height: 100px; border-radius: 60px; border-top-left-radius: 200px;  border-bottom-right-radius: 100px;"> <br> <br>
+                <button class="btn btn-success my-5" onclick="startCountDown()">Start</button>
+    </div>
+
+    <script>
+        // const startCountDown = ()=>{
+        //     // console.log(ss.value)
+        //     ss.value--
+        //     setTimeout(startCountDown, 1000);
+        // }
+
+            // if(ss.value == 0){
+            //     alert("yes")
+            //     ss = ss.value + 0
+            // }
+
+            const startCountDown = ()=>{
+                if(ss.value>0){
+                    ss.value--
+                    setTimeout(startCountDown, 1000);
+                }else{
+                    if(mm.value>0){
+                        mm.value--
+                        ss.value=59
+                    setTimeout(startCountDown, 1000);
+                    }else{
+                        if(hh.value>0){
+                            hh.value--
+                            mm.value=60
+                            mm.value--
+                            ss.value=59
+                            setTimeout(startCountDown, 1000);
+                        }
+                    }
+                    
+                }
+        }
+        done()
+        const done = () => {
+            if(hh.value == 0 && mm.value == 0 && ss.value == 0){
+                setTimeout(() => {
+                    display.innerHTML = `<h1 class="text-Info"> Count~Down Stopped </h1> `
+                }, 60000,);
+            }
+        }       
+
+
+    </script>
+    
+</body>
+</html>

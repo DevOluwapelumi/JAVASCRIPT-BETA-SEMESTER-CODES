@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <style>
+        th{
+            background-color: aqua !important;
+            color: blue !important;
+        }
+    </style>
+    <h1 class="text-center  ">D ~ A ~ S ~ H ~ B ~ O ~ A ~ R ~ D</h1>
+
+
+    <table id="display" class="table table-striped">
+        <div id="disp"></div>
+
+        <tr class="text-center">
+            <th><b>S/N</th> 
+            <th><b>TITLE</th>     
+            <th><b>CATEGORIES</th>     
+            <th><b>TIME</th>     
+            <th><b>DAY</th> 
+            <th><b>ACTION</th>     
+         </tr>
+        </table>
+
+        <div class="text-end me-3">
+            <button class="btn btn-danger" onclick="out()">LOG OUT</button>
+            <button class="btn btn-dark my-2" onclick="back()">BACK TO TODO</button>
+        </div>
+
+    <script>
+
+
+                var user = JSON.parse(localStorage.getItem('userInfo'))
+                var userIndex = localStorage.getItem('currentUser')
+                var userData = user[userIndex].allTodo
+                console.log(userData)
+    for (let index = 0; index < userData.length; index++) {
+        console.log(userData[index])
+        display.innerHTML += `
+            <tr class="text-center">
+                <td>${index + 1}</td>
+                <td>${userData[index].usersTitle}</td>
+                <td>${userData[index].usersCategory}</td>
+                <td>${userData[index].usersTime}</td> 
+                <td>${userData[index].usersDay}</td>
+                <td>
+                    <button class="btn btn-danger my-2" onclick="del(${index})"> Delete User</button>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning my-2" onclick="edit(${index})"> Edit User</button>
+                </th>
+            </tr>
+            `
+    }
+
+
+            function back(){
+                window.location.href = "TodoAdd.html"
+            }
+
+            function del(){
+                alert("Am coming")
+                // swal("Good job!", "You clicked the button!", "success");
+            }
+            function edit(){
+                alert("Am coming")
+            }
+
+            function out(){
+                var getconfirm = confirm('Sure you wanna log out?')
+                if(getconfirm == true){
+                    window.location.href = "TodoIn.html"
+                }else{
+                    alert('Be careful')
+                }
+            }
+
+
+
+        // disp.innerHTML = `h1> Welcome, ${allUsers[currentUserIndex].firstname}</h1>`
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+</body>
+</html>

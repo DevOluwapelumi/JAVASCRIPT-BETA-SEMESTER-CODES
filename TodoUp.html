@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<!-- <body style="background-image: url(./b3705cc2edf8f527789e6e2be29f6267.gif);"> -->
+    <marquee behavior="alternate" direction="right" style="color: rgb(41, 218, 25); font-size: x-large; font-style: italic;">TODO PRO MAX</marquee>
+            <div class="col-3 mx-auto mt-5 bg-warning" style="box-shadow: 0 0 20px; border-radius: 30px;">
+                <h1 style="text-align: center;color: black;"> <marquee behavior="alternate" direction="right"> Sign Up Page </marquee> </h1>
+                <label class="form-label" style="font-style: italic;"><b> First Name</label>
+                <input type="text" placeholder="Enter your Firstname" class="form-control my-2"  style="border-radius: 30px" id="fn"> <br>
+                <label class="form-label" style="font-style: italic;"><b> Last Name</label>
+                <input type="text" placeholder="Enter your Lastname" class="form-control my-2" style="border-radius: 30px;" id="ln"> <br>
+                <label class="form-label" style="font-style: italic;"><b> Email</label>
+                <input type="email" placeholder="Enter your Email" class="form-control my-2" style="border-radius: 30px;" id="em"> <br>
+                <label class="form-label" style="font-style: italic;"><b> Password</label>
+                <input type="password" placeholder="Enter your Password" class="form-control my-2" style="border-radius: 30px;" id="ps"> <br>
+                <input type="file" name="" id="imG">
+                <div id="error"></div>
+
+                <button class="btn btn-success my-2 w-10" style="border-radius: 30px; margin-left: 70px;" onclick="signUp()">Sign up</button>
+                <input type="checkbox" onclick="log()">Already have an Account</input>
+            </div>
+            
+
+    
+    <script>
+        var userDetails = []
+
+        if(localStorage.userInfo){
+            var oldDatas = JSON.parse(localStorage.getItem('userInfo'))
+            userDetails = oldDatas
+           }
+           console.log(userDetails)
+
+           function signUp(){
+            if(fn.value == "" || ln.value == "" || em.value == "" || ps.value == ""){
+                error.innerHTML = `<h5 class="ms-5">Please, fill in your Details correctly!!!</h5>`
+                error.style.color = 'red'
+            }else{
+                var eachDetails = {
+                    firstname: fn.value,
+                    lastname: ln.value,
+                    email: em.value,
+                    password: ps.value,
+                    proimage:imG.value,
+                    allTodo: []
+                }
+
+                userDetails.push(eachDetails)
+                localStorage.setItem('userInfo', JSON.stringify(userDetails))
+                console.log(userDetails)
+                window.location.href = "TodoIn.html"
+            }
+           }
+
+           function log(){
+            setTimeout(() => {
+                window.location.href = "TodoIn.html"
+            }, 1000);
+           }
+
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

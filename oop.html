@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT ORIENTED PROGRAMMING</title>
+</head>
+<body>
+
+    <script>
+        // OOP --- >OBJECT ORIENTED PROGRAMMING
+        // PROCEDURAL PROGRAMMING
+        // DRY ---> DO NOT REPEAT YOURSELF
+
+        // PILLARS OF OOP ---> POLYMORPHISM, ABSTRACTION, ENCAPSULATION, INHERITANCE
+
+        // let pelumi = {
+        //     firstname: "Victor",
+        //     lastname: "Pelumi",
+        //     email: "vic16@gmail.com",
+        //     password: "come"
+        // }
+        // let dammy = {
+        //     firstname: "Esther",
+        //     lastname: "dammy",
+        //     email: "dam16@gmail.com",
+        //     password: "come"
+        // }
+
+        // class ---> A blueprint of an object
+        //properties and methods
+        //properties of car ---> color,tyres,brand,engineType
+        //methods ---> accelerate(),brake(),horn()
+        //constructor
+        // To bind ---> call on this keyword
+
+        // class Car {
+        //     constructor(color,brand){
+        //         this.color = color
+        //         this.brand = brand
+        //     }
+        //     accelerate(){
+        //         console.log("vroooooom vroooooom")
+        //     }
+        //     horn(){
+        //         console.log("piiiiiinnnnnnn")
+        //     }
+        //     brake(){
+        //         console.log("raaaakkkkkkkeeeeee")
+        //     }
+        // }
+        // let pelumiCar = new Car("purple","venza")
+        // pelumiCar.accelerate()
+        // pelumiCar.horn()
+        // pelumiCar.brake()
+        // console.log(pelumiCar)
+
+
+
+        // -------->>>> INHERITANCE
+        class Car {
+            constructor(color,brand){
+                this.color = color
+                this.brand = brand
+            }
+            accelerate(){
+                console.log("vroooooom vroooooom")
+            }
+            horn(){
+                console.log("piiiiiinnnnnnn")
+            }
+            brake(){
+                console.log("raaaakkkkkkkeeeeee")
+            }
+        }
+        class Truck extends Car {
+
+        }
+        let pelumiCar = new Car("purple","venza")
+        pelumiCar.accelerate()
+        pelumiCar.horn()
+        pelumiCar.brake()
+        let pelumiTruck = new Truck("purple", "benz")
+        console.log(pelumiTruck)
+
+
+
+
+         // -------->>>> ENCAPSULATION
+
+         let mySong = new Audio()
+    </script>
+
+    //Assignment ----> player name,number,position
+
+    
+</body>
+</html>

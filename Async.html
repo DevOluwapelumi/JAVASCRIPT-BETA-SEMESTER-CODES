@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNCHRONOUS</title>
+</head>
+<body onload="getData()">
+
+    <!-- <button onclick="test()">Test</button> -->
+
+    <!-- <button onclick="getData()">Fetch From Api</button> -->
+    <div id="disp"></div>
+    <div id="loading"></div>
+    <script>
+        //     let endpoint = "https://jsonplaceholder.typicode.com/users"
+        //     let endpoint2 = "https://api.github.com/users"
+        // const getData = async ()=>{
+        //     // alert("izz working well")
+        //    let response = await fetch(endpoint2) 
+        //    let convertedresponse = await response.json()
+        //    console.log(convertedresponse)
+        //    convertedresponse.map((eachItem)=>{
+        //     disp.innerHTML += `<h1>${eachItem.login}</h1>
+        //     <img src = ${eachItem.avatar_url}/>
+        //     `
+        //    })
+
+                    // .then block =====
+        //  let endpoint = "https://jsonplaceholder.typicode.com/users"
+        //  const getData = async ()=>{
+        // fetch(endpoint).then((response)=>{
+        //     console.log(response)
+        // })
+        // }
+
+
+        // try and catch === Throw
+        let endpoint = "https://jsonplaceholder.typicode.com/users"
+        const getData = async ()=>{
+            loading
+            fetch(endpoint)
+            .then((response)=>response.json())
+            .then((convertedResponse)=>{
+                console.log(convertedResponse)
+                convertedResponse.map((eachItem)=>{
+                    disp.innerHTML += `<h1>${eachItem.name}</h1>`
+                })
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }
+
+        //    for (let index = 0; index < convertedresponse.length; index++) {
+        //     disp.innerHTML = `
+        //     <h1> ${convertedresponse[0].name} </h1>
+        //     `
+        //    }
+
+    
+        // console.log(1)
+        // setTimeout(function(){
+        //     console.log(2)
+        // }, 3000);
+        // console.log(3)
+
+        const test = ()=>{
+            navigator.geolocation.getCurrentPosition((location)=>{
+                console.log(location.coords)
+            })
+        }
+    </script>
+</body>
+</html>

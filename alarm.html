@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Timer  </title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="alarm.css">
+</head>
+<body>
+
+    <div style="color: red;">
+        <center>
+            <table>
+                <tr>
+                    <td colspan="3">
+                            <h1 align="center" class="mt-5"><marquee behavior="" direction=""> Set Your Alarm Timer!!!</marquee></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="mt-5"> <input type="number" id="hr" placeholder="00" class="dinputs" > : <input type="number" id="mn" placeholder="00" class="dinputs"> : <input type="number" id="sc"placeholder="00" class="dinputs"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <button  class="btn btn-success" onclick="alarmSet()">Start Alarm</button> <br> <br>
+                        <button class="btn btn-warning border-danger" onclick="resetTime()">Reset</button> <br> <br>
+                        <button type="button" class="btn btn-danger"  onclick="stopTime()">Stop Time</button> <br> <br>
+       
+                    <select name="" id="ampm" class="btn btn-dark">
+                        <option value="" >AM</option>
+                        <option value="" >PM</option>
+                    </select>
+                </td>
+                </tr>
+            </table>
+            <div id="gettym"></div>
+            <div id="myqstn"></div>
+            <input type="text" name="" id="myanswr">
+        </center>
+    </div>
+        <audio src="/AUD-20221207-WA0079.mp3" id="snd" loop preload="auto"></audio> 
+
+        <script type="text/javascript">
+           myanswr.style.display= "none"
+            function shwcrntTime(){
+                var myDate= new Date();
+                var myHour=myDate.getHours() ; 
+                var myMinutes= myDate.getMinutes();
+                var mySeconds= myDate.getSeconds();
+                var ap= (myDate.getHours()) < 12 ? 'AM' : 'PM';
+                gettym.innerHTML=myHour + " : " + myMinutes + " : " + mySeconds + " " + ap;
+                    
+                
+                if (hr.value == myHour && mn.value == myMinutes && sc.value == mySeconds) {
+                    // alert("Hi")
+                    snd.play()
+                 }
+               
+            }
+            var curntTime = setInterval(shwcrntTime,1000);
+            function alarmSet(){
+                var myDate= new Date();
+                var myHour=myDate.getHours() ; 
+                var myMinutes= myDate.getMinutes();
+                var mySeconds= myDate.getSeconds();
+                if (hr.value == myHour && mn.value == myMinutes && sc.value == mySeconds) {
+                    alert("Hi")
+                    snd.play();
+                 }
+            }
+    
+            
+            function resetTime(){
+                hr.value = "";
+                mn.value = "";
+                sc.value = "";
+                snd.pause();
+            }
+            
+            function stopTime(){
+                var myRndNum= Math.floor(Math.random()*10);
+                var myRandNum= Math.floor(Math.random()*10);
+                var sign = [ '+', '-', '/', '*'];
+                var myRndSign= Math.floor(Math.random()*3);
+                myanswr.style.display="block";
+                myqstn.innerHTML=  myRndNum +  sign[myRndSign]  + myRandNum;
+                var output= eval(myqstn.innerHTML);
+                var mainOutput= Math.round(output);
+                console.log(mainOutput)
+                setTimeout(function(){
+                    if(myanswr.value==mainOutput){
+                        snd.pause();
+                    }
+                    else(
+                        snd.play
+                    )
+                }
+                ,5000)
+    
+            
+               
+                    
+                }
+    
+            
+        </script>
+    
+</body>
+</html>

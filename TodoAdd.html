@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Todo</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="text-center mt-5 row">
+            <div class="col-12 te border w-50 mx-auto pb-2">
+                <h1>Add your Todo Here</h1>
+                <input type="text" placeholder="Todo Title" id="title" class="form-control my-2"> <br> <br>
+                <input type="text" placeholder="Todo Category" id="category" class="form-control my-2"> <br> <br>
+                <input type="time" placeholder="Todo Time" id="time" class="form-control my-2"> <br> <br>
+                <input type="date" placeholder="Todo Time" id="day" class="form-control my-2"> <br> <br>
+                <button class="btn btn-outline-success" onclick="addTodo()">Add Todo</button>
+                <button class="btn btn-outline-secondary" onclick="viewTodo()">View Todo</button>
+            </div>
+        </div>
+    
+    </div>
+   <div id="div1"></div>
+    <script>
+        var emptyObject = []
+
+        var currentUserIndex = localStorage.getItem('currentUser')
+
+        if(localStorage.userInfo){
+            var oldObjects = JSON.parse(localStorage.getItem('userInfo'))
+            emptyObject = oldObjects
+        }
+        div1.innerHTML=`
+        <h3>${name}</h3>
+        <img src="${image}">
+        `
+       var image=  emptyObject[currentUserIndex].proimage
+       var name =emptyObject[currentUserIndex].firstname
+       console.log(image)
+        function addTodo(){
+            var allObject = {
+                usersTitle: title.value,
+                usersCategory: category.value,
+                usersTime: time.value,
+                usersDay: day.value,
+            }
+            emptyObject[currentUserIndex].allTodo.push(allObject)
+
+            localStorage.setItem('userInfo', JSON.stringify(emptyObject))
+            console.log(emptyObject)
+        }
+
+             function viewTodo(){
+                window.location.href = "TodoDash.html"
+             }
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+</html>
