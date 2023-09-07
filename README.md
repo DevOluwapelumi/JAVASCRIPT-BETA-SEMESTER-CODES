@@ -4,3 +4,6 @@ Whether you're just starting your journey with JavaScript or looking to sharpen 
 
 Overview:
 This GitHub repository serves as a central hub for all the code written during the beta semester of your JavaScript course. It's organized to help you find and contribute to different projects, assignments, and exercises. Here's what you can expect to find:
+
+Projects: This section contains larger, more complex coding projects that you'll work on throughout the semester. Each project has its own directory with detailed documentation, code, and any necessary resources.
+Assignments: Here, you'll find individual coding assignments and challenges assigned during the course. Each assignment is neatly organized into its respective folder with instructions, sample code, and solutions (if provided).
