@@ -7,3 +7,5 @@ This GitHub repository serves as a central hub for all the code written during t
 
 Projects: This section contains larger, more complex coding projects that you'll work on throughout the semester. Each project has its own directory with detailed documentation, code, and any necessary resources.
 Assignments: Here, you'll find individual coding assignments and challenges assigned during the course. Each assignment is neatly organized into its respective folder with instructions, sample code, and solutions (if provided).
+Exercises: The exercises section is dedicated to smaller coding exercises and practice problems. These are perfect for honing your JavaScript skills and reinforcing the concepts you've learned in class.
+Documentation: In addition to code, this repository includes documentation and resources related to JavaScript, programming best practices, and any supplementary materials provided during the beta semester.
