@@ -30,3 +30,7 @@ Provide constructive feedback and assistance when possible.
 Keep code organized and well-documented.
 Follow best practices for JavaScript development.
 Use clear and descriptive commit messages.
+
+By adhering to these guidelines, we can create a positive and enriching learning experience for everyone involved.
+
+We look forward to seeing your contributions and watching your JavaScript skills grow throughout the beta semester! Happy coding!
